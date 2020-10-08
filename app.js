@@ -51,10 +51,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }     
     ]
 
-cardArray.sort(()=>0.5 - Math.random())
+cardArray.sort(()=>0.5 - Math.random());
 
 const grid = document.querySelector('.grid');
-const resultDisplay = document.querySelector('#result')
+const resultDisplay = document.querySelector('#result');
+const heading = document.querySelector('#heading');
 var cardsChosen =[];
 var cardsChosenId = [];
 var cardsWon = [];
@@ -76,17 +77,16 @@ function flipCard(){
    cardsChosenId.push(cardId);
    this.setAttribute('src',cardArray[cardId].img);
    if (cardsChosen.length === 2){
-       setTimeout(checkForMatch,500)
+       setTimeout(checkForMatch,1000)
    }
 }
 
 //checking for a match
 function checkForMatch(){
     var cards = document.querySelectorAll('img');
-    console.log(cards);
     const optionOneId = cardsChosenId[0];
     const optionTwoId = cardsChosenId[1];
-    console.log(optionOneId,optionTwoId,cardsChosen[0],cardsChosen[1]);
+    console.log(optionOneId,optionTwoId,cardsChosen[0],cardsChosen[1])
     if(optionOneId == optionTwoId){
         cards[optionOneId].setAttribute('src','images/blank.png');
     }
@@ -101,8 +101,9 @@ function checkForMatch(){
     cardsChosen =[];
     cardsChosenId =[];
     resultDisplay.textContent = cardsWon.length;
+    console.log(cardsWon);
     if(cardsWon.length === cardArray.length/2){
-        resultDisplay.textContent = 'Congratualtions!!';
+        heading.textContent = 'Congratulations!!';
     }
 }
 
