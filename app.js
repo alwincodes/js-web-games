@@ -101,7 +101,7 @@ function checkForMatch(){
     cardsChosen =[];
     cardsChosenId =[];
     resultDisplay.textContent = cardsWon.length;
-    if(cardsWon.lenth === cardArray.length/2){
+    if(cardsWon.length === cardArray.length/2){
         resultDisplay.textContent = 'Congratualtions!!';
     }
 }
